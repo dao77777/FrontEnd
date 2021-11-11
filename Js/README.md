@@ -1,0 +1,5 @@
+- 文档锚点
+- 文档跳转: a标签中target属性, _self表示当前页面打开, _blank表示新窗口打开, _parent, _top
+- 文件下载
+  - a标签中的download属性, 此属性仅支持同源URL, blob:URL, data:URL除外
+  - Content-Disposition

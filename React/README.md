@@ -23,3 +23,52 @@
   - {}引用
   - 条件渲染: &&, 三目
   - 列表渲染: 属性key
+
+
+- React.createElement(type, config, ...children)
+  - type: 标签|组件
+  - config: 属性对象
+  - children: 文本|组件
+- ReactDOM.render(ReactElement, container[, callback])
+- ReactElement
+  - $$typeof: Symbol(react.element)
+  - key
+  - ref
+  - type: 标签|组件
+  - _self
+  - _source: 记录ReactElement所在文件位置
+  - _store
+  - _owner
+  - props
+    - children
+    - other props
+
+- 初始化阶段: 状态---render()--->ReactDOM---React.render()--->DOM
+- 更新阶段: 状态---render()--->ReactDOM---diff算法--->DOM
+
+- 组件化, 工程化
+- 封闭, 开放
+- 组件的灵魂与躯干: render()方法, 组件生命周期
+
+- React15
+  - constructor()
+  - componentWillReceiveProps()
+  - shouldComponentUpadate()
+  - componentWillMount()
+  - componentWillUpdate()
+  - componentDidUpdate()
+  - componentDidMount()
+  - render()
+  - componentWillUnmount()
+![React15生命周期](./img/1.png)
+- React16
+![React16生命周期](./img/2.png)
+
+- diff算法
+  - 同步渲染, 递归比较前后两颗ReactDOM树
+  - Fiber架构, 异步渲染, 将一个大的更新任务拆解为许多个小任务, render阶段, commit阶段
+
+- props
+- 发布订阅模式
+- context
+- redux
