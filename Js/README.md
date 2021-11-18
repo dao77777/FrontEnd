@@ -512,6 +512,9 @@
       - padStart(长度[, 填充字符串]), padEnd(长度[, 填充字符串]): 填充字符串到指定长
       - toLowerCase(), toLocaleLowerCase(), toUpperCase(), toLocaleUpperCase()
 ### Symbol
+- Symbol(<string>): 声明一个不会冲突的symbol变量
+- Symbol.for(<string>): 全局声明一个映射到指定string的symbol值, 若有则用之, 没有则创建
+- Symbol.keyFor(<string>): 查询全局是否有指定string对应的symbol
 ### Object
 
 - 构造
@@ -561,7 +564,6 @@
       - toString(), toLocaleString(): 返回对象字符串表示
       - valueOf(): 返回对象的数值表示
 ### Proxy
-
 - 概念
    - 处理对象
       - 捕获器
@@ -570,7 +572,6 @@
    - 构造函数: new Proxy(目标对象, 处理对象)
    - 函数: {proxy, revoke} = Proxy.revocable(目标对象, 处理对象), 调用revoke()会切断代理目标对象和代理对象之间的联系
 ### Reflect
-
 - 静态
    - 属性描述
       - defineProperty(目标对象, 属性名, 属性描述对象): 替代Object.defineProperty()
