@@ -107,7 +107,20 @@
   - [webpack](#webpack)
 - [抽象](#抽象)
   - [UI](#ui)
-    - [](#)
+- [Todo](#todo)
+- [元信息](#元信息)
+- [流程控制](#流程控制-1)
+- [作用域](#作用域)
+- [异步](#异步-1)
+- [异常](#异常)
+- [面向对象](#面向对象)
+- [类型](#类型)
+- [类型转换](#类型转换)
+- [类型检测](#类型检测)
+- [初始化](#初始化)
+- [运算](#运算)
+- [迭代](#迭代)
+- [内建](#内建)
 
 # 编译器
 ## 组成
@@ -2298,4 +2311,144 @@ module.exports = { presets, plugins };
    - 形式语言与自动机
 - 抽象表示
    - 计算机的数学模型: 图灵机
-### 
+# Todo
+# 元信息
+- `Function.arguments`：以数组形式获取传入函数的所有参数。此属性已被 arguments 替代。
+- `Function.caller`：获取调用函数的具体对象
+- `Function.length`：获取函数的接收参数个数
+- `Function.name`：获取函数的名称
+- `Function.displayName`：获取函数的 display name
+- `Object.defineProperties`：为指定对象定义多个 Property 并分别指定它们的 Descriptors
+- `Object.defineProperty`：为指定对象定义单个 Property 并指定该 Property 的 Descriptors
+- `Object.getOwnPropertyDescriptor`：获取指定对象某个自有 Property 的 Descriptors
+- `Object.getOwnPropertyDescriptors`：获取指定对象 Properties 的 Descriptors
+- `Object.isExtensible`：判断指定对象是否处于可扩展状态
+- `Object.isFrozen`：判断指定对象是否处于冻结状态
+- `Object.isSealed`：判断指定对象是否处于密封状态
+- `Object.preventExtensions`：标识指定对象为不可扩展状态
+- `Object.freeze`：标识指定对象为冻结状态
+- `Object.seal`：标识指定对象为密封状态
+- Proxy
+- Reflect
+# 流程控制
+- 分支: `if () {} else if () {} else {}`, `switch () {}`
+- 循环: `for (<init>;<condition>;<op>) {}`
+# 作用域
+- 全局作用域
+- 函数作用域
+- 块级作用域
+- 作用域链
+- 闭包
+# 异步
+- Promise, async await
+# 异常
+- `Error`
+  - `EvalError`: 用于表示与 eval() 相关的异常
+  - `InternalError`: 用于表示 JavaScript 引擎内部错误的异常抛出的实例。 如: "递归太多"。
+  - `RangeError`: 用于表示数值变量或参数超出其有效范围的异常
+  - `ReferenceError`: 用于表示无效引用的异常
+  - `SyntaxError`: 用于表示 eval() 在解析代码的过程中发生的语法错误的异常
+  - `TypeError`: 用于表示变量或参数不属于有效类型的异常
+  - `URIError`: 用于表示给 encodeURI() 或 decodeURl() 传递的参数无效的错误
+- `throw`, `try-catch-finally`
+# 面向对象
+- `class <class> extends <class> { constructor() {} }`
+- `<class>.prototype.constructor, <class>.prototype.prototype`
+- 封装
+- 继承
+  - `<class>.prototype`, `<instance>.__proto`, 原型链, struct_instance的根为Object, function_instance的根为Function
+  - `Object.getPrototypeOf`：获取指定对象的原型对象
+  - `Object.setPrototypeOf`：设置指定对象的原型对象
+  - `Object.prototype.isPrototypeOf`：用于测试一个对象是否存在于另一个对象的原型链上
+- 多态: 鸭子类型
+# 类型
+- `null`, `undefined`, `boolean`, `number`, `symbol`, `string`, `function`
+- `Object`, `Array`, `TypedArray`, `Map`, `WeakMap`, `Set`, `WeakSet`
+- `Date`, `RegExp`, `Error`, `Generator`
+# 类型转换
+- 隐式
+  - 时机: 某些方法, 逻辑判断, 逻辑运算, 关系运算, `+`
+  - `String()`, `Number()`, `Boolean()`, `Object.prototype.ValueOf()`, `Object.prototype.ToString()`, `Object.prototype[Symbol.toPrimitive]`
+- 显式(Todo)
+  - number->string: `Number.prototype.toPrecision()`, `Number.prototype.toString()`
+  - string->number: `parseInt()`, `parseFloat()`
+  - Array->string: `Array.prototype.join()`
+  - string->Array: `<string>.split("")`, `[...<string>]`
+  - Array.from()
+# 类型检测
+- `typeof`, `instanceof`
+# 初始化
+- 赋值: `var`, `let`, `const`, `=`, `解构赋值(Array, Object, function的param)`
+- `boolean`: `true`, `false`
+- `number`: `123`, `123n`, `0b10010`, `0o755`, `0xfff2e`, `1e21`, `Infinity`, `NaN`
+- `string`: `"fds"`, `"\xA9"`, `"\u00A9"`, ``fsdf${fdfds}``
+- `function`: `function() {}`, `() => {}`, `function <name>() {}`
+- `Object`: `{ a: "foo", b: "bar", c: 42 }`, `new Object()`
+- `Array`: `[2, 44, "fo"]`, `new Array()`
+- `RegExp`: `/ab+c/g`
+# 运算
+- 逻辑运算: &, |, ~, ^, !, &&, ||
+- 移位运算: <<, >>, >>>
+- 关系运算: ==, ===, !=, !==, <, >, <=, >=
+- 四则运算: +, -, *, /, %, ++, --, **
+# 迭代
+- 迭代实现: `Symbol.iterator()`, 返回带`next()`的对象, `next()`返回`{value, done}`
+- 可迭代对象: `string`, `Array`, `TypedArray`, `Map`, `WeakMap`, `Set`, `WeakSet`, `Generator`
+- 扩展运算符: `function <name>(...<iterable>) {}`, `[<elm>, ...<iterable>] = <iterable>``<function>(...<iterable>)`, `[...<iterable>]`, `{...<Object>}`
+- `for..of`
+# 内建
+- `console`
+- `string`
+  - `encodeURI`, `encodeURIComponent`
+  - `decodeURI`, `decodeURIComponent`
+- `number`
+  - `Number.EPSILON`	表示 1 和大于 1 的最小值（可表示为 Number）的差值。
+  - `Number.MAX_SAFE_INTEGER`	表示在 JavaScript 中最大的安全整数 (253 - 1)。
+  - `Number.MAX_VALUE`	表示在 JavaScript 中的最大数值。最小的负数是 -MAX_VALUE。
+  - `Number.MIN_VALUE`	能表示的最小正数即最接近 0 的正数 (实际上不会变成 0)。最大的负数是 -MIN_VALUE。
+  - `Number.NaN`	特殊的"非数字"值。
+  - `Number.NEGATIVE_INFINITY`	特殊的负无穷大值，在溢出时返回该值。
+  - `Number.POSITIVE_INFINITY`	特殊的正无穷大值，在溢出时返回改值。
+  - `Number.prototype`	表示 Number 构造函数的原型。
+  - `Number.isNaN()`	确定传递的值是否是 NaN 和其类型时 Number。它是原始的全局 isNaN() 的更强大的版本。
+  - `Number.isFinite()`	用于检测传入的参数是否时一个有穷数。
+  - `Number.isInteger()`	用来判断传入的参数是否为整数。
+  - `Number.isSafeInteger()`	确定传递的值是否为安全整数 ( -(253 - 1) 至 253 - 1 之间)。
+  - `Number.prototype.toExponential()`	以指数表示法返回该数值字符串表示形式。
+  - `Number.prototype.toFixed()`	使用定点表示法来格式化一个数。
+- `symbol`
+  - `Symbol(<string>)`
+  - `Symbol.for()`
+  - `Symbol.keyFor()`
+  - `Symbol.hasInstance`
+  - `Symbol.isConcatSpreadable`
+  - `Symbol.iterator`
+  - `Symbol.match`
+  - `Symbol.replace`
+  - `Symbol.search`
+  - `Symbol.species`
+  - `Symbol.split`
+  - `Symbol.toPrimitive`
+  - `Symbol.toStringTag`
+  - `Symbol.unscopables`
+- `function`
+  - 函数内可用arguments获取参数
+  - `Function.prototype.apply`：设定指定函数的调用上下文环境，并提供数组形式的参数
+  - `Function.prototype.call`：设定指定函数的调用上下文环境，并提供列表形式的参数
+  - `Function.prototype.bind`：绑定指定函数的调用上下文，无论如何调用均以该调用函数上下文为准
+- `Object`
+  - 增删改查: `<Object>[<key>]|<Object>.<key> = <val>`, `delete <Object>[<key>]|<Object>.<key>`, `<Object>[<key>]|<Object>.<key> = <val>`, `<Object>[<key>]|<Object>.<key>`
+  - `<key> in <Object>`
+  - `Object.is`：比较两个值是否相同
+  - `Object.assign`：通过拷贝一个或多个对象的可枚举 Property 来创建一个新的对象
+  - `Object.create`：使用指定的原型对象和 Property 创建一个新对象
+  - `Object.keys`：获取指定对象的自身可枚举 Property 键名组成的数组集合
+  - `Object.values`：返回一个给定对象自己的所有可枚举 Properties 值的数组集合
+  - `Object.entries`：获取指定对象可枚举 Properties 的键值对组成的二维数组
+  - `Object.getOwnPropertyNames`：获取指定对象某个自有 Property 的键名数组集合（包括不可枚举属性但不包括 Symbol 值作为名称的属性）
+  - `Object.getOwnPropertySymbols`：获取指定对象某个自有 Property 键名为 Symbol 类型的数组集合
+  - `Object.prototype.hasOwnProperty`：用于指示对象自身属性中是否具有指定的属性，而且此属性非原型链继承的
+  - `Object.prototype.propertyIsEnumerable`：用于测试一个对象是否存在于另一个对象的原型链上
+  - `Object.prototype.toSource`：用于表示源代码的字符串
+  - `Object.prototype.toLocaleString`：用于派生对象为了特定语言环境的目的而重载使用
+- `Array`
