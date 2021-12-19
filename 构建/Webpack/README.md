@@ -139,3 +139,25 @@ webpack.config.js
 
 WebWoker多线程
 SharedWorker
+
+- 工程化: grunt, gulp, rollup, webpack, vite
+- 构建
+  - 入口, 出口
+  - 解析: 别名, 后缀省略
+  - loader: js/ts, html, css/sass/less, 可url引入文件->url/dataURL, data
+    - css兼容性问题用postCss, 内嵌css, 外置css, css-extract-plugin
+    - js兼容性问题, babel, core-js
+  - plugin: html-webpack-plugin
+  - 优化
+    - 开发优化: 热模块替换
+    - 代码压缩
+    - 按需加载: webpack代码分割 + 动态import语法
+    - 缓存
+    - 自身: 算法, 资源大小(压缩混淆), 合并http短连接, script标签的async和defer属性, preload & prefetch, dns-prefetch, 重绘 & 重流
+    - 并发: 大数据并发, cdn网络请求并发
+    - 缓存: 强缓存, 协商缓存(文件需content-hash命名)
+    - 按需: 路由懒加载, 图片懒加载, 数据懒加载
+  - source-map
+  - 模式
+  - 服务器配置
+- 语法检查: eslint
