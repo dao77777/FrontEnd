@@ -1,0 +1,36 @@
+- entry, output
+- assets: use, type, parser
+  - js
+  - css: style-loader, css-loader
+  - html: html-loader
+  - url: type asset/resource
+    - img: jpg, jpeg, png, svg, gif
+    - font: woff, woff2, eot, otf, ttf
+  - data
+    - json: builtIn
+    - csv,tsv: csv-loader
+    - xml: xml-loader
+    - json5: type json, parser.parse json5.parse
+    - toml: type json, parser.parse toml.parse
+    - yaml: type json, parser.parse yaml.parse
+- plugin
+  - html-webpack-plugin: automatic import html, minify html
+- optimization
+  - production
+    - minify js
+    - minify html: html-webpack-plugin
+    - minify css
+    - nameForCache: hash, chunkhash, contenthash
+    - 按需加载
+      - script标签的async & defer属性
+      - code split: entry points/prevent duplication/dynamic imports
+      - link标签的preload & prefetch
+  - development
+    - sourcemap: devtool
+    - server: devServer
+- server
+  - webpack --watch: 自动监听文件变化来更新打包文件, 但需手动刷新页面来更新
+  - webpack-dev-server: 自动监听文件变化并更新页面
+  - webpack-dev-middleware: 
+
+what is optimization.runtimeChunk = "single"

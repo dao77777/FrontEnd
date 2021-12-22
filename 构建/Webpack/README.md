@@ -161,3 +161,4 @@ SharedWorker
   - 模式
   - 服务器配置
 - 语法检查: eslint
+- babel, typescript: @babel/core, @babel/cli
