@@ -3,6 +3,7 @@ const toml = require("toml");
 const yaml = require("yamljs");
 const json5 = require("json5");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: "./src/index.js",
@@ -69,15 +70,16 @@ module.exports = {
         removeComments: true
       }
     }),
+    new BundleAnalyzerPlugin(),
   ],
   devtool: "inline-source-map",
   devServer: {
     static: "./dist"
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: "all",
-  //   },
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   mode: "development",
 };

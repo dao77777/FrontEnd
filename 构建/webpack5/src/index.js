@@ -9,6 +9,7 @@ import toml from "./data.toml";
 import yaml from "./data.yaml";
 import json5 from "./data.json5";
 
+
 print();
 console.log(png);
 console.log(woff);
@@ -18,11 +19,11 @@ console.log(toml);
 console.log(yaml);
 console.log(json5);
 
-async function common() {
-  const promise = await import("./common");
+const main = document.querySelector("#main");
+main.addEventListener("click", async () => {
+  const promise = await import(/* webpackChunkName: "common", webpackPrefetch: true */ "./common.js");
   console.log(promise);
-} 
-common();
+})
 
 // 基于准备好的dom，初始化echarts实例
 const myChart = echarts.init(document.getElementById('main'));

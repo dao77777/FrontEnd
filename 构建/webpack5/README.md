@@ -17,14 +17,24 @@
   - html-webpack-plugin: automatic import html, minify html
 - optimization
   - production
+    - 性能指标: RAIL性能模型, Web Vitals
     - minify js
     - minify html: html-webpack-plugin
     - minify css
     - nameForCache: hash, chunkhash, contenthash
     - 按需加载
-      - script标签的async & defer属性
       - code split: entry points/prevent duplication/dynamic imports
-      - link标签的preload & prefetch
+    - 并发
+      - script标签的async & defer属性
+      - link标签的preload & prefetch, webpack中以`import(/* webpackPrefetch: true */<path>)`和`import(/* webpackPreload: true */<path>)`提供支持, [<link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c), [Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf), [Preloading content with <link rel="preload" />](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload)
+      - link标签的dns-prefetch
+    - 可视化工具
+      - [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer), `npm i webpack-bundle-analyzer --save-dev`安装好后以后, `const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;`以插件的形式引入`webpack.config.js`
+      - Lighthouse
+      - WebPageTest
+      - Chrome DevTools
+      - 性能测量API
+      - 性能监控
   - development
     - sourcemap: devtool
     - server: devServer
@@ -33,4 +43,8 @@
   - webpack-dev-server: 自动监听文件变化并更新页面
   - webpack-dev-middleware: 
 
-what is optimization.runtimeChunk = "single"
+
+- ***Question***
+  - optimization.runtimeChunk = "single"什么意思
+  - webpackPreload貌似失效了
+  - webpack cli能往webpack.config.js里面传参吗, 若能, 则我想用env="prod"|"dev"|"analy"改变不同的配置
