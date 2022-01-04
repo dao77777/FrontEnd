@@ -1,5 +1,6 @@
 import * as echarts from "echarts";
 import print from "./print.js";
+import { haha } from "./wow.js";
 import "./style.css";
 import png from "./url.png";
 import woff from "./url.woff";
@@ -11,6 +12,7 @@ import json5 from "./data.json5";
 
 
 print();
+haha();
 console.log(png);
 console.log(woff);
 console.log(csv);

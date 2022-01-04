@@ -18,10 +18,15 @@
 - optimization
   - production
     - 性能指标: RAIL性能模型, Web Vitals
-    - minify js
-    - minify html: html-webpack-plugin
-    - minify css
-    - nameForCache: hash, chunkhash, contenthash
+    - 自身优化
+      - minify js
+      - minify html: html-webpack-plugin
+      - minify css
+    - 缓存
+      - nameForCache: hash, chunkhash, contenthash
+      - optimization.runtimeChunk: 运行时分包
+      - optimization.splitChunks: 第三方库依赖分包
+      - optimization.moduleIds: 分包时内容改变策略
     - 按需加载
       - code split: entry points/prevent duplication/dynamic imports
     - 并发
@@ -38,13 +43,31 @@
   - development
     - sourcemap: devtool
     - server: devServer
+    - loader的inclue字段
 - server
   - webpack --watch: 自动监听文件变化来更新打包文件, 但需手动刷新页面来更新
   - webpack-dev-server: 自动监听文件变化并更新页面
   - webpack-dev-middleware: 
-
+- 环境变量: --env xxx
 
 - ***Question***
   - optimization.runtimeChunk = "single"什么意思
   - webpackPreload貌似失效了
   - webpack cli能往webpack.config.js里面传参吗, 若能, 则我想用env="prod"|"dev"|"analy"改变不同的配置
+
+- 入口文件
+- 出口文件夹, 出口文件名, 输出前先清理文件夹
+- html, css, js处理, url资源处理(png|jpg|jpeg|gif|svg|woff|woff2|eot|otf|ttf), data资源处理(csv, tsv, xml, yaml, toml, json, json5)
+- html文件模板入口, 出口文件名, script标签位置, 文件资源最小化
+- 打包资源可视化
+- 分包, runtime分包, node_modules分包, src分包
+- source-map
+- 开发服务器配置, 静态资源位置
+
+- 打包入口
+- 打包出口, 出口命名
+- 路径解析
+- 资源处理
+- 分包
+- 生产优化: 资源最小化, treeShaking, 资源混淆, 分包策略
+- 开发优化: 开发服务器, source-map, 资源处理范围, HMR, babel缓存, oneOf, thread-loader, 打包资源可视化
