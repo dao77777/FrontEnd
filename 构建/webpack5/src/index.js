@@ -9,8 +9,9 @@ import xml from "./data.xml";
 import toml from "./data.toml";
 import yaml from "./data.yaml";
 import json5 from "./data.json5";
+import { wow } from "#/type_test";
 
-
+wow("hehe", "haha");
 print();
 haha();
 console.log(png);

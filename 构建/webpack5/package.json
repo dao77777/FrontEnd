@@ -1,12 +1,12 @@
 {
-  "name": "echarts_test",
+  "name": "test3",
   "version": "1.0.0",
   "description": "",
-  "private": true,
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --env production",
-    "dev": "webpack serve --open --env development",
+    "start": "webpack serve --open --env development",
     "visulize": "webpack --env visulize"
   },
   "keywords": [],
@@ -26,12 +26,14 @@
     "json5": "^2.2.0",
     "mini-css-extract-plugin": "^2.4.5",
     "toml": "^3.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
     "webpack": "^5.65.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0",
+    "webpack-dev-server": "^4.7.2",
     "xml-loader": "^1.2.1",
-    "yamljs": "^0.3.0"
+    "yaml": "^1.10.2"
   },
   "dependencies": {
     "echarts": "^5.2.2"
