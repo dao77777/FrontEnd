@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpack_test2=self.webpackChunkwebpack_test2||[]).push([[592],{493:function(e,t,w){w.r(t),t.default={wow:"wow"}}}]);
