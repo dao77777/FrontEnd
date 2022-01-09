@@ -5,7 +5,7 @@ const toml = require("toml");
 const json5 = require("json5");
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: path.resolve(__dirname, "src/index.ts"),
   output: {
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "assets/[contenthash:10][ext]",
@@ -16,17 +16,28 @@ module.exports = {
       "@": __dirname,
       "#": path.resolve(__dirname, "src"),
     },
-    extensions: [".js", ".ts", ".jsx", ".tsx"],
+    extensions: [".ts", ".js", ".tsx", ".jsx", ".json"],
   },
   module: {
     rules: [
       { test: /\.html$/, use: "html-loader" },
+      // { 
+      //   test: /^(?!.*\.global).*\.css$/,
+      //   use: [
+      //     MiniCssExtractPlugin.loader,
+      //     {
+      //       loader: "css-loader",
+      //       options: {
+      //         modules: true,
+      //       },
+      //     },
+      //     "postcss-loader",
+      //   ],
+      //   exclude: /node_modules/,
+      // },
+      // { test: /^(.*\.global).*\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"] },
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"] },
-      { 
-        test: /\.(js|jsx)$/, 
-        exclude: /node_modules/,
-        use: "babel-loader",
-      },
+      { test: /\.(js|jsx)$/, exclude: /node_modules/,use: "babel-loader" },
       { test: /\.(ts|tsx)$/, exclude: /node_modules/, use: "ts-loader" },
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|otf|ttf)$/, type: "asset/resource" },
       { test: /\.(csv|tsv)$/, use: "csv-loader" },

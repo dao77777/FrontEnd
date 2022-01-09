@@ -1,6 +1,6 @@
 import * as echarts from "echarts";
-import print from "./print.js";
-import { haha } from "./wow.js";
+import print from "./print";
+import { haha } from "./wow";
 import "./style.css";
 import png from "./url.png";
 import woff from "./url.woff";
@@ -23,13 +23,13 @@ console.log(yaml);
 console.log(json5);
 
 const main = document.querySelector("#main");
-main.addEventListener("click", async () => {
-  const promise = await import(/* webpackChunkName: "common", webpackPrefetch: true */ "./common.js");
+main?.addEventListener("click", async () => {
+  const promise = await import(/* webpackChunkName: "common", webpackPrefetch: true */ "./common");
   console.log(promise);
 })
 
 // 基于准备好的dom，初始化echarts实例
-const myChart = echarts.init(document.getElementById('main'));
+const myChart = echarts.init(document.getElementById('main') as HTMLElement);
 // 指定图表的配置项和数据
 const option = {
   title: {
